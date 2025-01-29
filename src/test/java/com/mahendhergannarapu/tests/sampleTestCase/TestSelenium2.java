@@ -1,4 +1,4 @@
-package com.mahendhergannarapu.tests;
+package com.mahendhergannarapu.tests.sampleTestCase;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
