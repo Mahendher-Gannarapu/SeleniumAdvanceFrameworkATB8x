@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class TestSelenium {
+public class TestSelenium2 {
 
     @Test
     public void test_Method() throws InterruptedException {
