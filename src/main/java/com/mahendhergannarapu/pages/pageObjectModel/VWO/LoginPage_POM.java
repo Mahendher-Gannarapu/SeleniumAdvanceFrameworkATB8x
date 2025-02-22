@@ -1,9 +1,11 @@
-package com.mahendhergannarapu.pages.pageObjectModel;
+package com.mahendhergannarapu.pages.pageObjectModel.VWO;
 
+import com.mahendhergannarapu.base.CommonToAllPage;
+import com.mahendhergannarapu.utils.PropertiesReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-    public class LoginPage_POM {
+    public class LoginPage_POM extends CommonToAllPage {
 
         // instance variable
         WebDriver driver;
@@ -25,9 +27,16 @@ import org.openqa.selenium.WebDriver;
 
         // Step 2 - Creating Page Actions
         public String loginToVWOLoginInvalidCreds(String user, String pwd) {
-            driver.findElement(username).sendKeys(user);
-            driver.findElement(password).sendKeys(pwd);
-            driver.findElement(signButton).click();
+
+            driver.get(PropertiesReader.readKey("url"));//url getting from the PropertiesReader class
+//            driver.findElement(username).sendKeys(user);
+//            driver.findElement(password).sendKeys(pwd);
+//            driver.findElement(signButton).click();
+
+            //Instead of using above code simplified as below (using common functionalities from the CommonToAllPage class)
+            enterInput(username,user);
+            enterInput(password,pwd);
+            clickElement(signButton);
 
             try {
                 Thread.sleep(3000);
@@ -42,9 +51,16 @@ import org.openqa.selenium.WebDriver;
 
 
         public void loginToVWOLoginValidCreds(String user, String pwd) {
-            driver.findElement(username).sendKeys(user);
-            driver.findElement(password).sendKeys(pwd);
-            driver.findElement(signButton).click();
+            driver.get(PropertiesReader.readKey("url"));
+            enterInput(username,user);
+            enterInput(password,pwd);
+            clickElement(signButton);
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
 
         }
 
